@@ -1,0 +1,40 @@
+---
+title: "cap 14 magrittr"
+author: "pedro"
+date: "30/11/2020"
+encoding: "UTF-8"
+output: github_document
+---
+# Pipes com magrittr cap 14
+```{r carregando o pacote magrittr}
+library("magrittr")
+```
+## Alternativas ao Piping
+Estorinha do livro:
+
+> Little bunny Foo Foo\
+> Went hopping through the forest\
+> Scooping up the filed mice\
+> And bopping them on the head\
+
+```{r message=FALSE, warning=FALSE}
+#função fictícia
+#foo_foo <-  little_bunny()
+```
+Usando uma função fictícia para cada verbo-chave: **hop()**, **scoop()** e **bop()**, há quatro maneiras para recontar a história do coelhinho Foo Foo:\
+
+* Salvar cada passo intermediário como um novo objeto
+* Sobrescrever o objeto original várias vezes
+* Compor funções
+* Usar o pipe
+
+---
+### Passos intermediários
+O modo mais simples é salvar cada passo como um objeto novo:
+```{r}
+#foo_foo_1 <- hop(foo_foo, through = forest)
+#foo_foo_2 <- hop(foo_foo_1, up = field_mice)
+#foo_foo_3 <- hop(foo_foo_2, on = head)
+```
+
+

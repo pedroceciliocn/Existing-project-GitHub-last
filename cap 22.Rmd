@@ -1,0 +1,73 @@
+---
+title: "cap 22"
+author: "pedro"
+date: "19/11/2020"
+encoding: "UTF-8"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("tidyverse")
+```
+
+### Rótulo
+```{r}
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = paste(
+      "Fuel efficiency generally increases with",
+      "engine size"
+    )
+  )
+```
+
+### mais informações adicionadas
+```{r}
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = paste(
+      "Fuel efficiency generally increases with",
+      "engine size"
+    ),
+    subtitle = paste(
+      "Two seaters (sport cars) are an exception",
+      "because of their light weight"
+    ),
+    caption = paste(
+      "Data from fueleconomy.gov"
+    )
+  )
+```
+
+### mudando os títulos dos eixos
+```{r}
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = "Engine displacement (L)",
+    y = "Highway fuel economy (mpg)",
+    colour = "Car type"
+  )
+```
+
+### usando equações matemáticas em vez de strings de texto
+```{r}
+df <- tibble(
+  x = runif(10),
+  y = runif(10)
+)
+ggplot(df, aes(x, y)) +
+  geom_point() +
+  labs(
+    x = quote(sum(x[i] ^ 2, i == 1, n)),
+    y = quote(alpha + beta + frac(delta, theta))
+  )
+```
+
+
